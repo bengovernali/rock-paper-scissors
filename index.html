@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<script>
+  
+  //Function for computer to randomly select 'rock', 'paper', or 'scissors'
+
+  function computerPlay() {
+    let compOptions = ['rock', 'paper', 'scissors'];
+    let computerSelection = compOptions[Math.floor(Math.random()*compOptions.length)];
+    return computerSelection;
+  }
+  
+  //Function for actual play of game. Takes computer's choice and user's choice, then outputs a win or loss
+
+  function playRound(playerSelection, computerSelection) {
+    
+    //computerPlay(); //call computerPlay to get a choice from the computer
+
+    playerSelection = prompt('Select rock, paper, or scissors', ' ');   //Player makes a choice
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerPlay();
+
+    let results 
+
+    if (playerSelection != 'rock' || 'paper' || 'scissors') {   //Breaks code if non-option typed by user
+      results = "That's not an option";
+  
+    } else if (playerSelection == computerSelection) {
+        results = "It's a draw!";
+      }
+
+      else if ((playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'scissors' && computerSelection == 'paper')) { 
+        results = "You have won!"
+      }
+      else {
+        results = "You have lost!";
+      }
+
+      return results; 
+      console.log(results);
+  }
+
+  function game() {
+    //computerPlay();
+    playRound();
+  } 
+
+</script>
+</html>
