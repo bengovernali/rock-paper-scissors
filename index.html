@@ -25,21 +25,46 @@
       results = "That is not a valid choice"
     }
       else if ((playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'scissors' && computerSelection == 'paper')) { 
-          results = "You have won!"
+          results = "win"
       }
       else if (playerSelection == computerSelection) {
-        results = "It is a draw!"
+        results = "draw"
       }
       else {
-        results = "You lose!"
+        results = "loss"
       }     
     console.log(results);
     return results;
   }
 
   function game() {
-    computerPlay();
-    playRound();
+    let playerScore = 0;    //Player Score
+    let computerScore = 0;    //Computer Score
+    let i = 0;
+
+    while (i < 5) {
+      computerPlay();
+      playRound();
+
+      if (results == "win") {
+        playerScore++;
+      } 
+        else if (results == "loss") {
+          computerScore++;
+        }
+        else {
+        }
+      i++;
+    }
+    if (playerScore > computerScore) {
+      return "Victory!";
+    } 
+      else if (playerScore == computerScore) {
+        return "Defeat!";  
+      }
+      else {
+        return "Draw!";
+      }
   }  
 
 </script>
