@@ -7,7 +7,7 @@
 
   function computerPlay() {
     let compOptions = ['rock', 'paper', 'scissors'];
-    let computerSelection = compOptions[Math.floor(Math.random()*compOptions.length)];
+    computerSelection = compOptions[Math.floor(Math.random()*compOptions.length)];
     return computerSelection;
   }
   
@@ -21,30 +21,26 @@
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerPlay();
 
-    let results 
-
-    if (playerSelection != 'rock' || 'paper' || 'scissors') {   //Breaks code if non-option typed by user
-      results = "That's not an option";
-  
-    } else if (playerSelection == computerSelection) {
-        results = "It's a draw!";
-      }
-
+    if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {   
+      results = "That is not a valid choice"
+    }
       else if ((playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'scissors' && computerSelection == 'paper')) { 
-        results = "You have won!"
+          results = "You have won!"
+      }
+      else if (playerSelection == computerSelection) {
+        results = "It is a draw!"
       }
       else {
-        results = "You have lost!";
-      }
-
-      return results; 
-      console.log(results);
+        results = "You lose!"
+      }     
+    console.log(results);
+    return results;
   }
 
   function game() {
-    //computerPlay();
+    computerPlay();
     playRound();
-  } 
+  }  
 
 </script>
 </html>
