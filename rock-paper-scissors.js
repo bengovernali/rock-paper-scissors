@@ -10,21 +10,32 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
 
   computerSelection = computerPlay();
-  console.log(playerSelection);
-  console.log(computerSelection);
+  let roundResult = document.querySelector('#roundResult');
+  //console.log(playerSelection);
+  //console.log(computerSelection);
 
   if (playScore < 5 && compScore < 5) { 
-    if ((playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'scissors' && computerSelection == 'paper')) { 
+    if ((playerSelection == 'rock' && computerSelection == 'scissors') || 
+      (playerSelection == 'paper' && computerSelection == 'rock') || 
+      (playerSelection == 'scissors' && computerSelection == 'paper')) { 
+      
       playScore += 1;
+      roundResult.textContent = "The player chooses " + playerSelection + 
+      " and the computer chooses " + computerSelection + ". Player wins this round!"
+    }  
       if (playScore == 5) {
         result = document.querySelector('#result');
         result.textContent = "Player Has Won!";
       }
-    }
     else if (playerSelection == computerSelection) {
+      roundResult.textContent = "The player chooses " + playerSelection +
+      " and the computer chooses " + computerSelection + ". It is a draw!"
     }
     else {
       compScore += 1;
+      roundResult.textContent = "The player chooses " + playerSelection +
+      " and the computer chooses " + computerSelection + ". The computer wins this round!"
+
       if (compScore == 5) {
         result = document.querySelector('#result');
         result.textContent = "Computer Has Won!";
